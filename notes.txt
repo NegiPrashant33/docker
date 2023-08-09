@@ -1,0 +1,72 @@
+# ----------Docker (Beginners)----------
+
+# list all the docker containers
+docker ps
+
+# list all the docker images
+docker images 
+
+# pull a docker image from docker hub
+docker pull <image name>:<tag>
+For example docker pull mysql:latest
+
+# build docker image from docker file
+docker build <path to docker file>  -t java-app
+-t --> tag, here java-app is a name and tag for docker image
+
+docker file --> docker image --> docker container
+image coming from docker hub is pulled
+image coming from docker file is build
+
+# To create a container using mysql:latest image
+docker run -d -e MYSQL_ROOT_PASSWORD=test@123 mysql:latest
+-e --> environment variable flag
+-d --> detach, will run in background
+
+# To execute a container, go inside the container
+docker exec -it <container id> sh
+-it --> interactive terminal
+
+# Run mysql inside the container
+mysql -u root -p
+
+# Check the status of a service
+systemctl status docker
+
+# Java installation
+sudo apt install openjdk-17-jre
+sudo apt install openjdk-17-jdk
+
+# To create an flask-app image from Dockerfile
+docker build . -t flask-app
+
+# To create a flask-app container from it's image
+docker run -d -p 5000:5000 flask-app:latest
+
+# Forcefully stop a running container
+docker kill <container id>
+
+# Remove stopped containers
+docker rm <container id>
+
+# Creating an nginx container
+docker run nginx
+If the nginx image is not available locally, then docker checks
+Docker hub for it's image and downloads it
+
+# Command to remove all containers in Docker
+docker container prune
+
+docker system prune
+
+# Remove all docker images
+docker image prune --all --force
+
+# Main purpose of docker
+To provide an efficient way to package and deploy applications.
+
+
+# ----------- Docker (Advanced) -----------
+
+# Volumnes in docker
+Volume is a mechanism for persistently storing and managing data that needs to be shared or accessed by Docker containers. Volumes provide a way to separate data storage from the lifecycle of containers, allowing data to persist even when containers are stopped, started, or removed. Volumes are an important feature in Docker because they enable data to be preserved and shared across containers and container instances.
