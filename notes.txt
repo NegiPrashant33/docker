@@ -90,3 +90,20 @@ docker logs <container id>
 
 # To run docker compose
 docker-compose up
+
+# To stop docker compose
+docker-compose down
+
+# Docker hub login
+docker login
+
+# To change image name
+docker image tag multi-flask-app:latest negiprashant33/multi-flask-app:latest
+
+# To push image from local to docker hub
+docker push <image name>
+The image name should be of the following convention to push it to docker hub
+<docker hub user name>/<image name>
+
+# To logout from docker hub
+docker logout
