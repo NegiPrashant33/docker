@@ -25,6 +25,7 @@ docker run -d -e MYSQL_ROOT_PASSWORD=test@123 mysql:latest
 
 # To execute a container, go inside the container
 docker exec -it <container id> sh
+docker exec -t <container id> bash
 -it --> interactive terminal
 
 # Run mysql inside the container
@@ -42,6 +43,7 @@ docker build . -t flask-app
 
 # To create a flask-app container from it's image
 docker run -d -p 5000:5000 flask-app:latest
+-p --> publish the port, exposing the container port and mapping it with host port 
 
 # Forcefully stop a running container
 docker kill <container id>
@@ -70,3 +72,21 @@ To provide an efficient way to package and deploy applications.
 
 # Volumnes in docker
 Volume is a mechanism for persistently storing and managing data that needs to be shared or accessed by Docker containers. Volumes provide a way to separate data storage from the lifecycle of containers, allowing data to persist even when containers are stopped, started, or removed. Volumes are an important feature in Docker because they enable data to be preserved and shared across containers and container instances.
+
+# List all docker volume
+docker volume ls
+
+# Create a new volume
+docker volume create --name django-app-volume --opt type=none --opt device=<path> --opt o=bind
+
+# Mount(attach) the docker volume to the docker container
+docker run -d --mount source=<volume name>,target=<container's working directory> -p 8000:8000 django-app:latest
+
+# Docker Compose
+Used to run multiple containers (micro-services)
+
+# Check the logs of a container
+docker logs <container id>
+
+# To run docker compose
+docker-compose up
