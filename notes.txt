@@ -61,8 +61,12 @@ docker container prune
 
 docker system prune
 
-# Remove all docker images
+# Remove all docker images or remove single docker image
 docker image prune --all --force
+docker rmi <image name>
+docker rmi -f <image name>
+
+-f --> forcefully remove 
 
 # Main purpose of docker
 To provide an efficient way to package and deploy applications.
@@ -81,6 +85,9 @@ docker volume create --name django-app-volume --opt type=none --opt device=<path
 
 # Mount(attach) the docker volume to the docker container
 docker run -d --mount source=<volume name>,target=<container's working directory> -p 8000:8000 django-app:latest
+
+# Inspect a volume
+docker volume inspect <volume name>
 
 # Docker Compose
 Used to run multiple containers (micro-services)
@@ -107,3 +114,8 @@ The image name should be of the following convention to push it to docker hub
 
 # To logout from docker hub
 docker logout
+
+
+#----------Docker Swarm-----------
+Swarm --> Cluster
+Docker Swarm is a container orchestration tool. Container orchestration refers to the process of managing and automating the deployment, scaling, and operation of multiple containers within a cluster or environment. 
