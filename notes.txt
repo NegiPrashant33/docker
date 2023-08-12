@@ -115,6 +115,10 @@ The image name should be of the following convention to push it to docker hub
 # To logout from docker hub
 docker logout
 
+# Docker Compose
+Docker Compose is a tool used for defining and running multi-container Docker applications. It allows you to define a set of services, their dependencies, and the configuration needed to run them, all within a single YAML file called a "docker-compose.yml" file.Then, with a single command, you create and start all the services from your configuration.
+
+Whenever we require multiple containers and need them to run simultaneously we use Compose as our tool. With Compose we use a YAML file to configure our application services.
 
 #----------Docker Swarm-----------
 Swarm --> Cluster
